@@ -14,22 +14,10 @@ public abstract class Animal {
         this.age = age;
     }
 
-    // Перегруженный (overload) конструктор
-    public Animal(String name, Color color) {
-        this(name, color, 0);
-//        this.name = name;
-//        this.color = color;
-//        this.age = 0;
-    }
-
     public abstract void voice();
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Color getColor() {
@@ -40,7 +28,4 @@ public abstract class Animal {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
 }

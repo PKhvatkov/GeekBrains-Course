@@ -16,10 +16,6 @@ public class Cat extends Animal implements Participant {
         this.jumpHeight = jumpHeight;
     }
 
-    public Cat(String name, Color color) {
-        super(name, color, 0);
-    }
-
     @Override
     public void voice() {
         System.out.println("Мяу");
@@ -51,14 +47,13 @@ public class Cat extends Animal implements Participant {
             isOnDistance = false;
             return;
         }
-        System.out.println(String.format("Собака %s пругнула на высоту %d", getName(), height));
+        System.out.println(String.format("Кошка %s прыгнула на высоту %d", getName(), height));
     }
 
     @Override
     public void swim(int distance) {
         isOnDistance = false;
         System.out.println("Кошка не умеет плавать");
-        // throw new UnsupportedOperationException("Кошка не умеет плавать");
     }
 
     public void setRunDistance(int runDistance) {
