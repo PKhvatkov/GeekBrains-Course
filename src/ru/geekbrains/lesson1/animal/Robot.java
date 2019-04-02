@@ -24,6 +24,16 @@ public class Robot implements Participant {
     }
 
     @Override
+    public String getName(){
+        return name;
+    }
+
+    @Override
+    public void showInfo(){
+        System.out.println(String.format("Имя: '%s'. Ему нужны твоя одежда и мотоцикл.", name));
+    }
+
+    @Override
     public boolean isOnDistance() {
         return isOnDistance;
     }

@@ -16,6 +16,10 @@ public abstract class Animal {
 
     public abstract void voice();
 
+    public void showInfo(){
+        System.out.println(String.format("Имя: '%s', цвет: '%s', возраст: '%d'" ,name, color.getName(), age));
+    }
+
     public String getName() {
         return name;
     }

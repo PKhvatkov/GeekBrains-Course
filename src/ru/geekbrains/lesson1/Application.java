@@ -25,11 +25,13 @@ public class Application {
 
         Course course = new Course(
                 new Cross(50),
-                new Wall(4),
-                new Cross(100),
-                new Water(5)
+                new Wall(5),
+                new Cross(60),
+                new Water(30)
         );
 
+        team.showParticipants(team);
         course.doIt(team);
+        team.showResults(team);
     }
 }
