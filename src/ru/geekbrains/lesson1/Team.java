@@ -16,25 +16,4 @@ public class Team {
     public Participant[] getParticipants() {
         return participants;
     }
-
-    public void showParticipants(Team team){
-        System.out.println("#### Участники ####");
-        for (Participant participant : team.getParticipants()){
-            participant.showInfo();
-        }
-        System.out.println("##############");
-    }
-
-    public void showResults(Team team) {
-        System.out.println("******** Результаты ********");
-        for (Participant participant : team.getParticipants()) {
-            System.out.print(participant.getName());
-            if (participant.isOnDistance()) {
-                System.out.println(" прошел дистанцию!");
-            } else {
-                System.out.println(" сошел с дистанции!");
-            }
-        }
-        System.out.println("****************************");
-    }
 }
