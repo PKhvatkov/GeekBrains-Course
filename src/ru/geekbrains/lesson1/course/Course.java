@@ -21,6 +21,7 @@ public class Course {
 
                 // если участник сошел с дистанции, то нет смысла двигать его дальше
                 if (!participant.isOnDistance()) {
+                    System.out.println(String.format("%s сошел с дистанции", participant.getName()));
                     break;
                 }
             }

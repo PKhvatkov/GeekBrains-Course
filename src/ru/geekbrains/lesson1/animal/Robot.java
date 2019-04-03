@@ -1,6 +1,7 @@
 package ru.geekbrains.lesson1.animal;
 
 import ru.geekbrains.lesson1.Participant;
+import ru.geekbrains.lesson1.enums.Color;
 
 /**
  * Робот не является животным, но может учавствовать в соревнованиях
@@ -9,28 +10,67 @@ import ru.geekbrains.lesson1.Participant;
 public class Robot implements Participant {
 
     private String name;
+    private boolean isOnDistance;
+    private int runDistance;
+    private int jumpHeight;
+    private int swimDistance;
 
-    public Robot(String name) {
+    public Robot(String name, int runDistance, int jumpHeight, int swimDistance) {
         this.name = name;
+        this.isOnDistance = true;
+        this.runDistance = runDistance;
+        this.jumpHeight = jumpHeight;
+        this.swimDistance = swimDistance;
+    }
+
+    @Override
+    public String getName(){
+        return name;
+    }
+
+    @Override
+    public void showInfo(){
+        System.out.println(String.format("Имя: '%s'. Ему нужны твоя одежда и мотоцикл.", name));
     }
 
     @Override
     public boolean isOnDistance() {
-        return false; // TODO доработать по аналогии с классами животных
+        return isOnDistance;
     }
 
     @Override
     public void run(int distance) {
-        // TODO доработать по аналогии с классами животных
+        if (!isOnDistance) {
+            return;
+        }
+        if (distance > runDistance) {
+            isOnDistance = false;
+            return;
+        }
+        System.out.println(String.format("Робот %s пробежал кросс длинной %d", name, distance));
     }
 
     @Override
     public void jump(int height) {
-        // TODO доработать по аналогии с классами животных
+        if (!isOnDistance) {
+            return;
+        }
+        if (height > jumpHeight) {
+            isOnDistance = false;
+            return;
+        }
+        System.out.println(String.format("Робот %s прыгнул на высоту %d", name, height));
     }
 
     @Override
     public void swim(int distance) {
-        // TODO доработать по аналогии с классами животных
+        if (!isOnDistance) {
+            return;
+        }
+        if (distance > swimDistance) {
+            isOnDistance = false;
+            return;
+        }
+        System.out.println(String.format("Робот %s проплыл дистанцию длинной %d", name, distance));
     }
 }
