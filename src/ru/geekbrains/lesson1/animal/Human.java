@@ -9,62 +9,32 @@ public class Human extends Animal implements Participant {
         super(name, color, age);
     }
 
-    private boolean isOnDistance;
-    private int runDistance;
-    private int jumpHeight;
-    private int swimDistance;
-
-    public Human(String name, Color color, int age, int runDistance, int jumpHeight, int swimDistance) {
-        super(name, color, age);
-        this.isOnDistance = true;
-        this.runDistance = runDistance;
-        this.jumpHeight = jumpHeight;
-        this.swimDistance = swimDistance;
-    }
-
-    @Override
-    public void voice() {
-        System.out.println("Поехали!");
+    public Human(String name, Color color) {
+        super(name, color, 0);
     }
 
     @Override
     public boolean isOnDistance() {
-        return isOnDistance;
+        return false; // TODO доработать по аналогии с классом Cat
     }
 
     @Override
     public void run(int distance) {
-        if (!isOnDistance) {
-            return;
-        }
-        if (distance > runDistance) {
-            isOnDistance = false;
-            return;
-        }
-        System.out.println(String.format("Человек %s пробежал кросс длинной %d", getName(), distance));
+        // TODO доработать по аналогии с классом Cat
     }
 
     @Override
     public void jump(int height) {
-        if (!isOnDistance) {
-            return;
-        }
-        if (height > jumpHeight) {
-            isOnDistance = false;
-            return;
-        }
-        System.out.println(String.format("Человек %s прыгнул на высоту %d", getName(), height));
+        // TODO доработать по аналогии с классом Cat
     }
 
     @Override
     public void swim(int distance) {
-        if (!isOnDistance) {
-            return;
-        }
-        if (distance > swimDistance) {
-            isOnDistance = false;
-            return;
-        }
-        System.out.println(String.format("Человек %s проплыл дистанцию длинной %d", getName(), distance));
+        // TODO доработать по аналогии с классом Cat
+    }
+
+    @Override
+    public void voice() {
+        // TODO доработать по аналогии с классом Cat
     }
 }

@@ -7,10 +7,6 @@ public interface Participant {
 
     boolean isOnDistance();
 
-    String getName();
-
-    void showInfo();
-
     void run(int distance);
 
     void jump(int height);
