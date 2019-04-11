@@ -25,16 +25,28 @@ public class MainWindow extends JFrame {
 
         JPanel sendMessagePanel = new JPanel();
         sendMessagePanel.setLayout(new BorderLayout());
+
+
         JButton sendButton = new JButton("Отправить");
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(MainWindow.this,
-                        "Message", "Title", JOptionPane.INFORMATION_MESSAGE);
+//                JOptionPane.showMessageDialog(MainWindow.this,
+//                        "Message", "Title", JOptionPane.INFORMATION_MESSAGE);
+                messagesArea.append(messageField.getText());
             }
         });
+
         sendMessagePanel.add(sendButton, BorderLayout.EAST);
+
         JTextField messageField = new JTextField();
+        messageField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                messagesArea.append(messageField.getText());
+            }
+        });
+
         sendMessagePanel.add(messageField, BorderLayout.CENTER);
 
         add(sendMessagePanel, BorderLayout.SOUTH);
