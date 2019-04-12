@@ -9,7 +9,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
         setTitle("Application");
-        setBounds(200,200, 500, 500);
+        setBounds(200, 200, 500, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         setLayout(new BorderLayout());
@@ -26,28 +26,32 @@ public class MainWindow extends JFrame {
         JPanel sendMessagePanel = new JPanel();
         sendMessagePanel.setLayout(new BorderLayout());
 
+        JTextField messageField = new JTextField();
+        messageField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!messageField.getText().equals("")) {
+                    messagesArea.append(messageField.getText() + "\n");
+                    messageField.setText("");
+                }
+            }
+        });
+
+        sendMessagePanel.add(messageField, BorderLayout.CENTER);
 
         JButton sendButton = new JButton("Отправить");
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                JOptionPane.showMessageDialog(MainWindow.this,
-//                        "Message", "Title", JOptionPane.INFORMATION_MESSAGE);
-                messagesArea.append(messageField.getText());
+                if (!messageField.getText().equals("")) {
+                    messagesArea.append(messageField.getText() + "\n");
+                    messageField.setText("");
+                }
             }
         });
 
         sendMessagePanel.add(sendButton, BorderLayout.EAST);
 
-        JTextField messageField = new JTextField();
-        messageField.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                messagesArea.append(messageField.getText());
-            }
-        });
-
-        sendMessagePanel.add(messageField, BorderLayout.CENTER);
 
         add(sendMessagePanel, BorderLayout.SOUTH);
 
