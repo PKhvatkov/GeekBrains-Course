@@ -1,8 +1,5 @@
 package ru.geekbrains.lesson5;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class MultiThreadApp {
 
     static final int size = 10000000;
@@ -10,7 +7,6 @@ public class MultiThreadApp {
     static float[] arr = new float[size];
     static float[] a1 = new float[h];
     static float[] a2 = new float[h];
-
 
     public static void main(String[] args) {
 
@@ -36,8 +32,10 @@ public class MultiThreadApp {
         Thread thread2 = new Thread(new Runnable() {
             @Override
             public void run() {
+                int jj;
                 for (int j = 0; j < h; j++) {
-                    a2[j] = (float) (a2[j] * Math.sin(0.2f + j / 5) * Math.cos(0.2f + j / 5) * Math.cos(0.4f + j / 2));
+                    jj = j + h;
+                    a2[j] = (float) (a2[j] * Math.sin(0.2f + jj / 5) * Math.cos(0.2f + jj / 5) * Math.cos(0.4f + jj / 2));
                 }
             }
         });
